@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:horeca/models/onboarding.dart';
 import 'package:horeca/screens/components/assets.dart';
 import 'package:horeca/screens/components/widgets.dart';
-
 import '../auth/login.dart';
 
 class Onboarding extends StatefulWidget {

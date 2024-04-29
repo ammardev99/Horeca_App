@@ -9,17 +9,19 @@ import 'horeca/home.dart';
 
 class Horeca extends StatefulWidget {
   const Horeca({super.key});
-
   @override
   State<Horeca> createState() => _HorecaState();
 }
 
 class _HorecaState extends State<Horeca> {
   int visitScreen = 0;
+  int getindex(){
+    return visitScreen;
+  }
 
   List<TabItem> screenItems = [
-    const TabItem(
-      icon: Icons.home_outlined,
+      const TabItem(
+      icon:  Icons.home_outlined,
       title: 'Home',
     ),
     const TabItem(
