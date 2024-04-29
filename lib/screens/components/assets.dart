@@ -6,6 +6,7 @@ Color secondaryColor = const Color(0xFF1EAB70);
 Color whiteColor = const Color(0xFFFFFFFF);
 Color fillColor = const Color(0xFFF3F3F3);
 Color borderColor = const Color(0xFFD9D9D9);
+Color blackColor = const Color.fromARGB(255, 33, 33, 33);
 
 ButtonStyle buttonstyle(Color bg, Color fg, double radius ) {
   return ElevatedButton.styleFrom(

@@ -49,11 +49,12 @@ class _OnboardingState extends State<Onboarding> {
                   return Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      // crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Container(
                             child: myTitle(onboardingDataList[index].title,
                                 true, primaryColor)),
+                        sizeBox(40),
                         Image.asset(onboardingDataList[index].imagePath),
                       ],
                     ),

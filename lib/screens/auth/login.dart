@@ -4,6 +4,7 @@ import 'package:horeca/screens/components/assets.dart';
 import 'package:horeca/screens/components/widgets.dart';
 import 'package:horeca/screens/auth/signup.dart';
 import 'package:horeca/screens/auth/verify.dart';
+import 'package:horeca/screens/horeca.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -92,7 +93,7 @@ class _LoginState extends State<Login> {
                 moveButtom(
                   'Login',
                   context,
-                  const Login(),
+                  const Horeca(),
                   true,
                 ),
                 sizeBox(40),

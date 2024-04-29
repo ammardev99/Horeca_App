@@ -50,7 +50,7 @@ Widget myHeading(String text, [Color? color]) {
 }
 
 Widget getCurveBorder() {
-  return Image.asset('assets/images/bottom_curve.png');
+  return Image.asset('assets/images/bottom_curve.png', fit: BoxFit.fitWidth,);
 }
 
 Widget info(String text, [Color? color]) {
