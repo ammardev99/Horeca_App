@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:horeca/components/assets.dart';
 import 'package:horeca/components/widgets.dart';
-import 'package:horeca/screens/horeca/inner%20screens/item_info.dart';
+import 'package:horeca/models/product.dart';
+import 'package:horeca/screens/horeca/appbar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'inner screens/product_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -29,22 +31,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.menu,
-                color: primaryColor,
-              )),
-          centerTitle: true,
-          title: getSVGLogo(25),
-          actions: [
-            const CircleAvatar(
-              backgroundImage: AssetImage('assets/png/profile.png'),
-            ),
-            sizeBox(10),
-          ],
-        ),
+        appBar: horecaAppBar(),
         body: Container(
 // set background image
           decoration: const BoxDecoration(
@@ -94,14 +81,10 @@ class _HomeState extends State<Home> {
                             mainAxisExtent: 280
                             // childAspectRatio: 1.8,
                             ),
-                    itemCount: 15,
+                    itemCount: productDataList.length,
                     itemBuilder: (context, index) {
                       // return showItem();
-                      return showProduct(
-                          "'assets/png/categories/All_Offers.png'",
-                          'title',
-                          'info',
-                          '$index.5$index');
+                      return productCard(productDataList[index]);
                     },
                   ),
                 ),
@@ -272,57 +255,4 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
-
-Widget showProduct(String img, String title, String info, String rate) {
-  return InkWell(
-    borderRadius: BorderRadius.circular(10),
-    splashColor: primaryColor,
-    onTap: () {
-      Get.to(const ItemInfo());
-    },
-    child: Container(
-      height: 100,
-      decoration: BoxDecoration(
-        color: whiteColor,
-        border: Border.all(color: borderColor),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-// product image and title
-          Container(
-              width: double.infinity,
-              height: 125,
-              decoration: BoxDecoration(
-                color: primaryLightColor,
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10)),
-              ),
-              child: Image.asset('assets/png/categories/All_Offers.png')),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ListTile(
-                  contentPadding: const EdgeInsets.all(0),
-                  title: myHeading(
-                    'Hähnch brustfilet',
-                    false,
-                  ),
-                  subtitle: const Text(
-                    'Neque porro quisquam est qui dolorem ipsum quia',
-                  ),
-                ),
-                myBoldHeading('\$$rate'),
-              ],
-            ),
-          )
-        ],
-      ),
-    ),
-  );
 }
