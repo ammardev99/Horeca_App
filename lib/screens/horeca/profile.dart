@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:horeca/screens/components/assets.dart';
+import 'package:horeca/components/assets.dart';
 class Profile extends StatefulWidget {
   const Profile({super.key});
 

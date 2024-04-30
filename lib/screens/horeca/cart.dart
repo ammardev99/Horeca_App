@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:horeca/screens/components/assets.dart';
+import 'package:horeca/components/assets.dart';
 class Cart extends StatefulWidget {
   const Cart({super.key});
 

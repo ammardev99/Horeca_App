@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:horeca/screens/onboarding/onboarding.dart';
 
-import 'screens/components/assets.dart';
+import 'components/assets.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

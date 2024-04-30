@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horeca/screens/components/assets.dart';
-import 'package:horeca/screens/components/widgets.dart';
+import 'package:horeca/components/assets.dart';
+import 'package:horeca/components/widgets.dart';
 import 'package:horeca/screens/auth/signup.dart';
 import 'package:horeca/screens/auth/verify.dart';
 import 'package:horeca/screens/horeca.dart';
@@ -86,7 +86,7 @@ class _LoginState extends State<Login> {
                         onTap: () {
                           Get.to(const Verify());
                         },
-                        child: info("Forgot the password?", Colors.red)),
+                        child: info("Forgot the password?", false ,Colors.red)),
                   ],
                 ),
                 sizeBox(40),
@@ -97,7 +97,7 @@ class _LoginState extends State<Login> {
                   true,
                 ),
                 sizeBox(40),
-                Center(child: info('- OR Continue with -')),
+                Center(child: info('- OR Continue with -', false)),
                 sizeBox(10),
                 infoAction(
                   "Create An Account",
@@ -137,7 +137,7 @@ class _LoginState extends State<Login> {
               width: 2,
             ),
           ),
-          info("Remember me", primaryColor),
+          info("Remember me", false,primaryColor),
         ],
       ),
     );

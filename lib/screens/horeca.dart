@@ -1,6 +1,6 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'components/assets.dart';
+import '../components/assets.dart';
 import 'horeca/cart.dart';
 import 'horeca/products.dart';
 import 'horeca/profile.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:horeca/screens/components/assets.dart';
-import 'package:horeca/screens/components/widgets.dart';
+import 'package:horeca/components/assets.dart';
+import 'package:horeca/components/widgets.dart';
 import 'package:horeca/screens/auth/login.dart';
 
 class Verify extends StatelessWidget {
@@ -33,7 +33,7 @@ class Verify extends StatelessWidget {
                     ),
                     sizeBox(20),
                     info(
-                        '* We will send you a message to set or reset your new password'),
+                        '* We will send you a message to set or reset your new password',false),
                     sizeBox(40),
                     moveButtom(
                       'Submit',

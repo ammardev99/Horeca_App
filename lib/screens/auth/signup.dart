@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:horeca/screens/components/assets.dart';
-import 'package:horeca/screens/components/widgets.dart';
+import 'package:horeca/components/assets.dart';
+import 'package:horeca/components/widgets.dart';
 import 'package:horeca/screens/auth/login.dart';
 
 class Signup extends StatefulWidget {
@@ -139,7 +139,7 @@ class _SignupState extends State<Signup> {
                       true,
                     ),
                     sizeBox(40),
-                    Center(child: info('- OR Continue with -')),
+                    Center(child: info('- OR Continue with -',false,)),
                     sizeBox(10),
                     infoAction(
                       "I Already Have an Account",
@@ -182,7 +182,7 @@ class _SignupState extends State<Signup> {
               width: 2,
             ),
           ),
-          info("Remember me", primaryColor),
+          info("Remember me",false, primaryColor),
         ],
       ),
     );

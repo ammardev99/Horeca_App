@@ -1,14 +1,14 @@
-
 import 'package:flutter/material.dart';
 
 Color primaryColor = const Color(0xFF027C56);
 Color secondaryColor = const Color(0xFF1EAB70);
+Color primaryLightColor = primaryColor.withOpacity(0.3);
 Color whiteColor = const Color(0xFFFFFFFF);
 Color fillColor = const Color(0xFFF3F3F3);
 Color borderColor = const Color(0xFFD9D9D9);
 Color blackColor = const Color.fromARGB(255, 33, 33, 33);
 
-ButtonStyle buttonstyle(Color bg, Color fg, double radius ) {
+ButtonStyle buttonstyle(Color bg, Color fg, double radius) {
   return ElevatedButton.styleFrom(
     backgroundColor: bg,
     textStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -19,31 +19,37 @@ ButtonStyle buttonstyle(Color bg, Color fg, double radius ) {
   );
 }
 
-
-InputDecoration inputStyle(
-  IconData icon,
-  String hint,
-
-) {
+InputDecoration inputStyle(IconData icon, String hint, [Color? bColor]) {
   return InputDecoration(
     contentPadding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-    prefixIcon: Icon(icon,size: 20,color: primaryColor,),
+    prefixIcon: Icon(
+      icon,
+      size: 20,
+      color: primaryColor,
+    ),
     hintText: hint,
     hintStyle: TextStyle(color: primaryColor),
     fillColor: fillColor,
     filled: true,
     // suffixIcon:
     //     IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: bColor ?? borderColor,
+      ),
+    ),
+
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
-        color: borderColor,
+        color: bColor ?? borderColor,
       ),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(
-        color: primaryColor,
+        color: bColor ?? borderColor,
       ),
     ),
   );

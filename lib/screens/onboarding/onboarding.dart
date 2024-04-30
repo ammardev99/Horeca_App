@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horeca/models/onboarding.dart';
-import 'package:horeca/screens/components/assets.dart';
-import 'package:horeca/screens/components/widgets.dart';
+import 'package:horeca/components/assets.dart';
+import 'package:horeca/components/widgets.dart';
 import '../auth/login.dart';
 
 class Onboarding extends StatefulWidget {
