@@ -86,6 +86,7 @@ Widget infoAction(
   String text,
   String label,
   page,
+  [Color? color]
 ) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -102,7 +103,7 @@ Widget infoAction(
             overlayColor: MaterialStateProperty.all(Colors.transparent),
             padding: MaterialStateProperty.all(EdgeInsets.zero),
           ),
-          child: info(label, false, primaryColor))
+          child: info(label, false, color??primaryColor))
     ],
   );
 }
@@ -170,14 +171,17 @@ Widget textIconButton(String text, IconData icon, [page]) {
 }
 
 Widget getProfileInfo() {
-  return ListTile(
-    contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-    leading: const CircleAvatar(
-      backgroundImage: AssetImage('assets/png/profile.png'),
-      maxRadius: 30,
+  return Container(
+    decoration: BoxDecoration(
+        color: primaryLightColor, borderRadius: BorderRadius.circular(8)),
+    child: ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+      leading: const CircleAvatar(
+        foregroundImage: AssetImage('assets/png/profile.png'),
+      ),
+      title: myHeading("Ashifa", false),
+      subtitle: info("ashifa@gmail.com", false, blackColor),
     ),
-    title: myHeading("Ashifa", false),
-    subtitle: info("ashifa@gmail.com", false, blackColor),
   );
 }
 
@@ -226,11 +230,11 @@ Widget getOrderCard(BuildContext context) {
               children: [
                 ListTile(
                   title: myHeading("Order ID", false),
-                  subtitle: info("Items 12", false,blackColor),
+                  subtitle: info("Items 12", false, blackColor),
                   trailing: Column(
                     children: [
                       info("#12345", false, blackColor),
-                      info("\$25.94", false,blackColor) ,
+                      info("\$25.94", false, blackColor),
                     ],
                   ),
                 ),

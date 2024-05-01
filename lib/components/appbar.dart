@@ -4,12 +4,11 @@ import 'package:horeca/components/widgets.dart';
 
 AppBar horecaAppBar() {
   return AppBar(
-    leading: IconButton(
-        onPressed: () {},
-        icon: Icon(
-          Icons.menu,
-          color: primaryColor,
-        )),
+    leading: DrawerButton(
+      style: ButtonStyle(
+        iconColor: MaterialStatePropertyAll(primaryColor)
+      ),
+    ),
     centerTitle: true,
     title: getSVGLogo(25),
     actions: [
@@ -21,11 +20,19 @@ AppBar horecaAppBar() {
   );
 }
 
-AppBar titleAppBar(String title) {
+AppBar innerTitleAppBar(String title) {
   return AppBar(
     leading: BackButton(
       color: primaryColor,
     ),
+    title: myHeading(title, true, primaryColor),
+    centerTitle: true,
+    elevation: 1,
+  );
+}
+
+AppBar mainTitleAppBar(String title) {
+  return AppBar(
     title: myHeading(title, true, primaryColor),
     centerTitle: true,
     elevation: 1,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:horeca/components/widgets.dart';
-import 'package:horeca/screens/horeca/appbar.dart';
+import 'package:horeca/components/appbar.dart';
 
 class OrderHistory extends StatelessWidget {
   const OrderHistory({super.key});
@@ -9,7 +9,7 @@ class OrderHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: titleAppBar('Order History'),
+      appBar: innerTitleAppBar('Order History'),
       // AppBar(
       //   title: myHeading("Order History", true, primaryColor),
       //   centerTitle: true,

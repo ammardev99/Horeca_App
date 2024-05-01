@@ -1,16 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:horeca/components/assets.dart';
+import 'package:horeca/components/drawer.dart';
 import 'package:horeca/components/widgets.dart';
 import 'package:horeca/models/product.dart';
-import 'package:horeca/screens/horeca/appbar.dart';
+import 'package:horeca/components/appbar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'inner screens/product_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
-
   @override
   State<Home> createState() => _HomeState();
 }
@@ -32,6 +32,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: horecaAppBar(),
+        drawer: 
+           myDrawer(context),
+        
         body: Container(
 // set background image
           decoration: const BoxDecoration(

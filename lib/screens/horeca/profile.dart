@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:horeca/components/assets.dart';
 import 'package:horeca/components/widgets.dart';
 import 'package:horeca/screens/auth/login.dart';
+import 'package:horeca/components/appbar.dart';
 import 'package:horeca/screens/horeca/inner%20screens/address_details.dart';
 import 'package:horeca/screens/horeca/inner%20screens/order_history.dart';
 
@@ -16,12 +16,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: myHeading("Profile", true, primaryColor),
-          centerTitle: true,
-          elevation: 1,
-        ),
-        // backgroundColor: secondaryColor,
+        appBar: mainTitleAppBar('Profile'),
         body: Padding(
           padding: const EdgeInsets.all(15),
           child: Column(

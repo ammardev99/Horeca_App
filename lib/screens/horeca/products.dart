@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:horeca/components/assets.dart';
+import 'package:horeca/components/drawer.dart';
 import 'package:horeca/components/widgets.dart';
 import 'package:horeca/models/product.dart';
-import 'package:horeca/screens/horeca/appbar.dart';
+import 'package:horeca/components/appbar.dart';
 import 'package:horeca/screens/horeca/inner%20screens/product_widget.dart';
+
 class Products extends StatefulWidget {
   const Products({super.key});
 
@@ -12,56 +14,53 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
-bool checkBox1 = false;
-bool checkBox4 = false;
-bool checkBox2 = false;
-bool checkBox3 = false;
+  bool checkBox1 = false;
+  bool checkBox4 = false;
+  bool checkBox2 = false;
+  bool checkBox3 = false;
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
+      drawer: myDrawer(context),
       appBar: horecaAppBar(),
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         physics: const BouncingScrollPhysics(),
-        child: Column(children: [
-          // search bar
-                sizeBox(20),
-                SizedBox(
-                    width: MediaQuery.of(context).size.width - 30,
-                    child: TextField(
-                      decoration: inputStyle(Icons.search,
-                          'Search any Product..', primaryLightColor),
-                    )),
-                sizeBox(15),
+        child: Column(
+          children: [
+            // search bar
+            sizeBox(20),
+            SizedBox(
+                width: MediaQuery.of(context).size.width - 30,
+                child: TextField(
+                  decoration: inputStyle(
+                      Icons.search, 'Search any Product..', primaryLightColor),
+                )),
+            sizeBox(15),
 // All Featured Sort And Filter Option Row
-                sortAndFilter(productDataList.length.toString()),
-                sizeBox(20),
+            sortAndFilter(productDataList.length.toString()),
+            sizeBox(20),
 
 // show products
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 20,
-                            crossAxisSpacing: 8,
-                            mainAxisExtent: 280
-                            ),
-                    itemCount: productDataList.length,
-                    itemBuilder: (context, index) {
-                      return productCard(productDataList[index]
-                          );
-                    },
-                  ),
-                ),
-
-
-          
-        ],),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 8,
+                    mainAxisExtent: 280),
+                itemCount: productDataList.length,
+                itemBuilder: (context, index) {
+                  return productCard(productDataList[index]);
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -173,6 +172,4 @@ bool checkBox3 = false;
       ],
     );
   }
-
-
 }

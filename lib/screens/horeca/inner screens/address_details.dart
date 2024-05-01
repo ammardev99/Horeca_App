@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:horeca/components/assets.dart';
 import 'package:horeca/components/widgets.dart';
 import 'package:horeca/screens/horeca.dart';
-import 'package:horeca/screens/horeca/appbar.dart';
+import 'package:horeca/components/appbar.dart';
 
 class AddressDetails extends StatefulWidget {
   const AddressDetails({super.key});
@@ -16,7 +16,7 @@ class _AddressDetailsState extends State<AddressDetails> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: titleAppBar("Address Details"),
+      appBar: innerTitleAppBar("Address Details"),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(15),
         scrollDirection: Axis.vertical,
