@@ -54,6 +54,36 @@ InputDecoration inputStyle(IconData icon, String hint, [Color? bColor]) {
     ),
   );
 }
+InputDecoration inputstylenoIcon( String hint, [Color? bColor]) {
+  return InputDecoration(
+    contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+    hintText: hint,
+    hintStyle: TextStyle(color: borderColor),
+    fillColor: fillColor,
+    filled: true,
+    // suffixIcon:
+    //     IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: bColor ?? borderColor,
+      ),
+    ),
+
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: bColor ?? borderColor,
+      ),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: bColor ?? borderColor,
+      ),
+    ),
+  );
+}
 
 // Search container
 Decoration searchDecoration(Color color, Color borderColor) {
