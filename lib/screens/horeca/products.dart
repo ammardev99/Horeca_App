@@ -22,47 +22,52 @@ class _ProductsState extends State<Products> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: myDrawer(context),
-      appBar: horecaAppBar(),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            // search bar
-            sizeBox(20),
-            SizedBox(
-                width: MediaQuery.of(context).size.width - 30,
-                child: TextField(
-                  decoration: inputStyle(
-                      Icons.search, 'Search any Product..', primaryLightColor),
-                )),
-            sizeBox(15),
+        drawer: myDrawer(context),
+        body: NestedScrollView(
+          floatHeaderSlivers: true,
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            return [mainSliverAppBar('assets/png/profile.png')];
+          },
+          body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                // search bar
+                sizeBox(20),
+                SizedBox(
+                    width: MediaQuery.of(context).size.width - 30,
+                    child: TextField(
+                      decoration: inputStyle(Icons.search,
+                          'Search any Product..', primaryLightColor),
+                    )),
+                sizeBox(15),
 // All Featured Sort And Filter Option Row
-            sortAndFilter(productDataList.length.toString()),
-            sizeBox(20),
+                sortAndFilter(productList.length.toString()),
+                sizeBox(20),
 
 // show products
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 20,
-                    crossAxisSpacing: 8,
-                    mainAxisExtent: 280),
-                itemCount: productDataList.length,
-                itemBuilder: (context, index) {
-                  return productCard(productDataList[index]);
-                },
-              ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 20,
+                            crossAxisSpacing: 8,
+                            mainAxisExtent: 280),
+                    itemCount: productList.length,
+                    itemBuilder: (context, index) {
+                      return productCard(productList[index]);
+                    },
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 
   Row sortAndFilter(String label) {

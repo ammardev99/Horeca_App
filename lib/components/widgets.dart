@@ -150,8 +150,10 @@ Widget categoryOption(String img, String tag) {
   );
 }
 
-Widget textIconButton(String text, IconData icon, [page]) {
+Widget textIconButton(String text, IconData icon,) {
   return Container(
+
+
     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
     decoration: BoxDecoration(
         color: whiteColor.withOpacity(0.8),

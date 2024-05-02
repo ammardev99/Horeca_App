@@ -31,70 +31,72 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: horecaAppBar(),
-        drawer: 
-           myDrawer(context),
-        
-        body: Container(
+        drawer: myDrawer(context),
+        body: NestedScrollView(
+          floatHeaderSlivers: true,
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return [mainSliverAppBar('assets/png/profile.png')];
+            },
+            body: Container(
 // set background image
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/png/bg.png"),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-// search bar
-                sizeBox(20),
-                SizedBox(
-                    width: MediaQuery.of(context).size.width - 30,
-                    child: TextField(
-                      decoration: inputStyle(Icons.search,
-                          'Search any Product..', primaryLightColor),
-                    )),
-                sizeBox(15),
-// All Featured Sort And Filter Option Row
-                sortAndFilter(),
-                sizeBox(20),
-                showBanners(),
-                sizeBox(10),
-                categoriesRow(),
-                sizeBox(10),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: myHeading('\t\t\tIngredients with a top margin',
-                        false, primaryColor)),
-                sizeBox(15),
-// show products
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 20,
-                            crossAxisSpacing: 8,
-                            mainAxisExtent: 280
-                            // childAspectRatio: 1.8,
-                            ),
-                    itemCount: productDataList.length,
-                    itemBuilder: (context, index) {
-                      // return showItem();
-                      return productCard(productDataList[index]);
-                    },
-                  ),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/png/bg.png"),
+                  fit: BoxFit.cover,
                 ),
-              ],
-            ),
-          ),
-        ));
+              ),
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+// search bar
+                    sizeBox(20),
+                    SizedBox(
+                        width: MediaQuery.of(context).size.width - 30,
+                        child: TextField(
+                          decoration: inputStyle(Icons.search,
+                              'Search any Product..', primaryLightColor),
+                        )),
+                    sizeBox(15),
+// All Featured Sort And Filter Option Row
+                    sortAndFilter(),
+                    sizeBox(20),
+                    showBanners(),
+                    sizeBox(10),
+                    categoriesRow(),
+                    sizeBox(10),
+                    Align(
+                        alignment: Alignment.topLeft,
+                        child: myHeading('\t\t\tIngredients with a top margin',
+                            false, primaryColor)),
+                    sizeBox(15),
+// show products
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 20,
+                                crossAxisSpacing: 8,
+                                mainAxisExtent: 280
+                                // childAspectRatio: 1.8,
+                                ),
+                        itemCount: productList.length,
+                        itemBuilder: (context, index) {
+                          // return showItem();
+                          return productCard(productList[index]);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )));
   }
 
   Row sortAndFilter() {
